@@ -7,6 +7,9 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("home page");
+});
 app.use("/user", userroute);
 
 app.all("*", (req, res, next) => {
