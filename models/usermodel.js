@@ -23,7 +23,7 @@ const userschema = new mongoose.Schema({
   },
   passwordConfirm: {
     type: String,
-    required: [true, "please confirm your password"],
+    optional: true,
     validate: {
       validator: function (el) {
         return el === this.password;
@@ -34,6 +34,10 @@ const userschema = new mongoose.Schema({
   number: {
     type: String,
     required: [true, "please provide a number"],
+  },
+  aboutme: {
+    type: String,
+    required: false,
   },
 });
 
@@ -65,6 +69,7 @@ userschema.pre("save", async function (next) {
 //   };
 //   next();
 // });
+
 userschema.pre("save", async function (next) {
   const iv = crypto.randomBytes(16);
   const cipher = crypto.createCipheriv(
