@@ -1,24 +1,114 @@
-const crypto = require("crypto");
-const algorithm = "aes-256-cbc";
-const key = crypto.randomBytes(32);
-const iv = crypto.randomBytes(16);
+// console.log("start");
 
-function encrypt(text) {
-  let cipher = crypto.createCipheriv("aes-256-cbc", Buffer.from(key), iv);
-  let encrypted = cipher.update(text);
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-  return { iv: iv.toString("hex"), encryptedData: encrypted.toString("hex") };
+// function arjun(email, name, callback) {
+//   setTimeout(() => {
+//     callback({ email: email });
+//   }, 500);
+// }
+// function arjun1(email, callback) {
+//   setTimeout(() => {
+//     callback({ email: email });
+//   }, 1000);
+// }
+// function arjun2(email, callback) {
+//   setTimeout(() => {
+//     callback({ email: email });
+//   }, 1000);
+// }
+
+// arjun("hi@gmail.com", "arjun", (user) => {
+//   console.log(user);
+//   arjun1("arar", (user) => {
+//     console.log(user);
+//     arjun2("arardds", (user) => {
+//       console.log(user);
+//     });
+//   });
+// });
+// console.log("finish");
+
+// console.log("start");
+
+// function arjun(email, name) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve({ email: email });
+//     }, 500);
+//   });
+// }
+// function arjun1(email) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve({ email: email });
+//     }, 1000);
+//   });
+// }
+// function arjun2(email) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve({ email: email });
+//     }, 1000);
+//   });
+// }
+
+// arjun("hi@gmail.com", "arjun")
+//   .then((user) => {
+//     console.log(user);
+//     return arjun1("arar");
+//   })
+//   .then((user) => {
+//     console.log(user);
+//     return arjun2("ara34r");
+//   })
+//   .then((user) => {
+//     console.log(user);
+//   });
+// console.log("finish");
+
+console.log("start");
+
+function arjun(email, name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ email: email });
+    }, 500);
+  });
+}
+function arjun1(email) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ email: email });
+    }, 1000);
+  });
+}
+function arjun2(email) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ email: email });
+    }, 1000);
+  });
 }
 
-function decrypt(text) {
-  let iv = Buffer.from(text.iv, "hex");
-  let encryptedText = Buffer.from(text.encryptedData, "hex");
-  let decipher = crypto.createDecipheriv("aes-256-cbc", Buffer.from(key), iv);
-  let decrypted = decipher.update(encryptedText);
-  decrypted = Buffer.concat([decrypted, decipher.final()]);
-  return decrypted.toString();
-}
+// arjun("hi@gmail.com", "arjun")
+//   .then((user) => {
+//     console.log(user);
+//     return arjun1("arar");
+//   })
+//   .then((user) => {
+//     console.log(user);
+//     return arjun2("ara34r");
+//   })
+//   .then((user) => {
+//     console.log(user);
+//   });
+// console.log("finish");
 
-var hw = encrypt("Some serious stuff");
-console.log(hw);
-console.log(decrypt(hw));
+async function display() {
+  const arju = await arjun("hi@gmail.com", "arjun");
+  console.log(arju);
+  const arj = await arjun1("hi@gma.com");
+  console.log(arj);
+  const aru = await arjun2("hi@gcom");
+  console.log(aru);
+}
+display();

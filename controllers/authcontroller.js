@@ -102,7 +102,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 });
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
-  c;
+
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
