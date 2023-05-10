@@ -6,7 +6,7 @@ const app = require("./app");
 
 mongoose
   .connect(
-    `mongodb+srv://arjun:${process.env.DATABASE_PASSWORD}@cluster0.smpnklh.mongodb.net/?retryWrites=true&w=majority`
+    "mongodb+srv://arjun:passwordarjun@cluster0.smpnklh.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("db connection successful");
